@@ -7,35 +7,150 @@
 		const contract_address = "0xd9145CCE52D386f254917e481eB44e9943F39138";
         //https://oneclickdapp.com/cowboy-size/
 
-		// const contract_abi = [
-		// 	{
-		// 		"inputs": [],
-		// 		"name": "get",
-		// 		"outputs": [
-		// 			{
-		// 				"internalType": "uint256",
-		// 				"name": "",
-		// 				"type": "uint256"
-		// 			}
-		// 		],
-		// 		"stateMutability": "view",
-		// 		"type": "function"
-		// 	},
-		// 	{
-		// 		"inputs": [
-		// 			{
-		// 				"internalType": "uint256",
-		// 				"name": "x",
-		// 				"type": "uint256"
-		// 			}
-		// 		],
-		// 		"name": "set",
-		// 		"outputs": [],
-		// 		"stateMutability": "nonpayable",
-		// 		"type": "function"
-		// 	}
-		// ];
-
+		const contract_abi = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "DocumentNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "number",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "expiresDate",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "ccv",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "ownerName",
+                        "type": "string"
+                    }
+                ],
+                "name": "AddNewCard",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "DocumentNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "Email",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "FullName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "BirthDate",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "Sex",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "Phone",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "Password",
+                        "type": "string"
+                    }
+                ],
+                "name": "RegisterNewUser",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "DocumentNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "CardNumber",
+                        "type": "string"
+                    }
+                ],
+                "name": "GetCardByNumber",
+                "outputs": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "Number",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "ExpiresDate",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "Ccv",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "OwnerName",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct sharedBuyInformationContract.CreditCard",
+                        "name": "",
+                        "type": "tuple"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "DocumentNumber",
+                        "type": "string"
+                    }
+                ],
+                "name": "GetContractData",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+        
 		const ethEnabled = () => {
 		  if (window.ethereum) {
 		    window.web3 = new Web3(window.ethereum);
