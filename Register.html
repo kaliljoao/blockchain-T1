@@ -172,13 +172,11 @@
 		    var sex = document.getElementById("sex").value;
 		    var password = document.getElementById("password").value;
 		    var confirmPassword = document.getElementById("confirmPassword").value;
-            
+
             if(password !== confirmPassword) {
                 alert("Different passwords");
             } else {
-		        window.SimpleStorage.methods
-                    .RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password)
-                    .send(documentNumber, email, fullname, "", sex, phone, password, {from:window.coinbase});
+		        window.SimpleStorage.methods.RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password).send();
             }
 		}
 
