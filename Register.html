@@ -176,7 +176,13 @@
             if(password !== confirmPassword) {
                 alert("Different passwords");
             } else {
-		        window.SimpleStorage.methods.RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password).send();
+                try {
+		            window.SimpleStorage.methods.RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password).send();
+                }
+                catch( err ) {
+                    console.log(err);
+                    throw err;
+                }
             }
 		}
 
