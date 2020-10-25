@@ -4,46 +4,16 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x358AA13c52544ECCEF6B0ADD0f801012ADAD5eE3";
-
-		// const contract_abi = [
-		// 	{
-		// 		"inputs": [],
-		// 		"name": "get",
-		// 		"outputs": [
-		// 			{
-		// 				"internalType": "uint256",
-		// 				"name": "",
-		// 				"type": "uint256"
-		// 			}
-		// 		],
-		// 		"stateMutability": "view",
-		// 		"type": "function"
-		// 	},
-		// 	{
-		// 		"inputs": [
-		// 			{
-		// 				"internalType": "uint256",
-		// 				"name": "x",
-		// 				"type": "uint256"
-		// 			}
-		// 		],
-		// 		"name": "set",
-		// 		"outputs": [],
-		// 		"stateMutability": "nonpayable",
-		// 		"type": "function"
-		// 	}
-		// ];
-
-		const ethEnabled = () => {
-		  if (window.ethereum) {
-		    window.web3 = new Web3(window.ethereum);
-		    window.ethereum.enable();
-		    return true;
-		  }
-          console.log(window);
-		  return false;
-		}
+		const contract_address = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+		const Web3 = require("web3");
+        const ethEnabled = () => {
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+                return true;
+            }
+            return false;
+        }
 
 		async function saveCoinbase () {
 		  window.coinbase = await window.web3.eth.getCoinbase();
