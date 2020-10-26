@@ -179,7 +179,7 @@
                 try {
 		            await window.SimpleStorage.methods
                         .RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password)
-                        .send({from:accounts[0]});
+                        .send({from:window.coinbase});
                 }
                 catch( err ) {
                     console.log(err);
