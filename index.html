@@ -190,14 +190,16 @@
 		async function loginWithSDP() {
             var documentNumber = document.getElementById("documentNumber").value;
 		    var password = document.getElementById("password").value;
-            console.log(documentNumber, password);
             try {
                     console.log("entrou no try-catch")
 		            let isRegistered = await window.SimpleStorage.methods
                         .LoginWithPlugin(documentNumber, password)
                         .call({from:window.coinbase});
-                    
-                    console.log(isRegistered);
+                    if(isRegistered) {
+                        window.location.href = 'https://kaliljoao.github.io/blockchain-T1/New-Card.html';
+                    } else {
+                        alert("Document Number or Password invalid!")
+                    }
                 }
                 catch( err ) {
                     console.log(err);
