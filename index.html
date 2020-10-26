@@ -170,7 +170,7 @@
             try {
                     console.log("entrou no try-catch")
 		            let isRegistered = await window.SimpleStorage.methods
-                        .RegisterNewUser(documentNumber, password)
+                        .Login(documentNumber, password)
                         .call({from:window.coinbase});
                     
                     console.log(isRegistered);
