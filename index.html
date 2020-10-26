@@ -194,7 +194,7 @@
             try {
                     console.log("entrou no try-catch")
 		            let isRegistered = await window.SimpleStorage.methods
-                        .Login(documentNumber, password)
+                        .LoginWithPlugin(documentNumber, password)
                         .call({from:window.coinbase});
                     
                     console.log(isRegistered);
