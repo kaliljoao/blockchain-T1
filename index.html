@@ -4,7 +4,7 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0xb3391698d29a6B6f354Fc7a5F4eF5b723493aCCE";
+		const contract_address = "0xfB80cE9d98E4bC8fb067e10E71d2bC38F65c9592";
 
         const contract_abi = [
             {
@@ -166,6 +166,18 @@
 		async function loginWithSDP() {
             var documentNumber = document.getElementById("documentNumber").value;
 		    var password = document.getElementById("password").value;
+
+            try {
+		            let isRegistered = await window.SimpleStorage.methods
+                        .RegisterNewUser(documentNumber, password)
+                        .call({from:window.coinbase});
+                    
+                    console.log(isRegistered);
+                }
+                catch( err ) {
+                    console.log(err);
+                    throw err;
+                }
         }
 
 		if (!ethEnabled()) {
