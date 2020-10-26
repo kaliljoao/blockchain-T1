@@ -166,8 +166,9 @@
 		async function loginWithSDP() {
             var documentNumber = document.getElementById("documentNumber").value;
 		    var password = document.getElementById("password").value;
-
+            console.log(documentNumber, password);
             try {
+                    console.log("entrou no try-catch")
 		            let isRegistered = await window.SimpleStorage.methods
                         .RegisterNewUser(documentNumber, password)
                         .call({from:window.coinbase});
