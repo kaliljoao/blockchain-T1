@@ -4,8 +4,8 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0xd9145CCE52D386f254917e481eB44e9943F39138";
-		const Web3 = require("web3");
+		const contract_address = "0xb3391698d29a6B6f354Fc7a5F4eF5b723493aCCE";
+		
         const ethEnabled = () => {
             if (window.ethereum) {
                 window.web3 = new Web3(window.ethereum);
@@ -19,15 +19,10 @@
 		  window.coinbase = await window.web3.eth.getCoinbase();
 		};
 
-		async function getAndShowVal () {
-		  var val = window.SimpleStorage.methods.get().call();
-			document.getElementById("storedData").value = await val;
-		};
-
-		async function setVal () {
-			var val = document.getElementById("storedData").value;
-		  window.SimpleStorage.methods.set(val).send(val, {from:window.coinbase});
-		}
+		async function loginWithSDP() {
+            var documentNumber = document.getElementById("documentNumber").value;
+		    var password = document.getElementById("password").value;
+        }
 
 		if (!ethEnabled()) {
 		  alert("Metamask or browser with Ethereum not detected!");
@@ -50,24 +45,25 @@
             <div class="card bg-light">
                 <article class="card-body mx-auto" style="max-width: 500px;">
                     <h4 class="card-title mt-3 text-center">Login</h4>
-                    <form>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input name="" class="form-control" placeholder="Email address" type="email">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                            </div>
-                            <input class="form-control" placeholder="Repeat password" type="password">
-                        </div>                                   
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block"> Enter  </button>
-                        </div>   
-                        <p class="text-center">Haven't an account? <a href="Register.html">Register</a> </p>                                                                 
-                    </form>
+                        <input id="documentNumber" name="" class="form-control" placeholder="Document Number..." type="text">
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input id="password" class="form-control" placeholder="Password..." type="password">
+                    </div>                                   
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block"> Enter  </button>
+                    </div>
+                    <div class="form-group">
+                        <button onclick="loginWithSDP()" class="btn btn-primary btn-block"> Enter with Shared Data Plugin  </button>
+                    </div>      
+                    <p class="text-center">Haven't an account? <a href="Register.html">Register</a> </p>                                                                 
                 </article>
             </div> <!-- card.// -->
         </div> 
