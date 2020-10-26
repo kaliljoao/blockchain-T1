@@ -177,7 +177,9 @@
                 alert("Different passwords");
             } else {
                 try {
-		            await window.SimpleStorage.methods.RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password).send();
+		            await window.SimpleStorage.methods
+                        .RegisterNewUser(documentNumber, email, fullname, "", sex, phone, password)
+                        .send({from:accounts[0]});
                 }
                 catch( err ) {
                     console.log(err);
