@@ -4,7 +4,7 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0xfB80cE9d98E4bC8fb067e10E71d2bC38F65c9592";
+		const contract_address = "0x2eAA54EED5a6B3EbfE07EF230Db6605695bA78B6";
 
         const contract_abi = [
             {
@@ -143,6 +143,30 @@
                         "internalType": "string",
                         "name": "",
                         "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "DocumentNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "Password",
+                        "type": "string"
+                    }
+                ],
+                "name": "LoginWithPlugin",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
                     }
                 ],
                 "stateMutability": "view",
