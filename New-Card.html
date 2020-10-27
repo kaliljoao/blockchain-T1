@@ -198,9 +198,6 @@
         }
 
         async function AddNewCard() {
-            var form = document.getElementById("formId");
-            form.style.display = 'none';
-
             var cardNumber = document.getElementById("cardNumber");
             var expiresDate = document.getElementById("expiresDate");
             var ccv = document.getElementById("ccv");
@@ -208,6 +205,7 @@
             var documentNumber = localStorage.getItem('documentNumber');
             console.log(documentNumber);
             try {
+                console.log('entrou pra fazer a request');
                 await window.SimpleStorage.methods
                     .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
                     .send({ from: window.coinbase });
@@ -216,7 +214,10 @@
                 console.log(err);
                 
             }
+            var form = document.getElementById("formId");
+            form.style.display = 'none';
         }
+        //0987.6543.1234.5678
 
         async function GetCards() {
             
