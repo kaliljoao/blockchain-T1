@@ -205,15 +205,16 @@
             var expiresDate = document.getElementById("expiresDate");
             var ccv = document.getElementById("ccv");
             var ownerName = document.getElementById("ownerName");
-            
+            var documentNumber = localStorage.getItem('documentNumber');
+            console.log(documentNumber);
             try {
                 await window.SimpleStorage.methods
-                    .AddNewCard(localStorage.getItem('documentNumber'), cardNumber, expiresDate, ccv, ownerName)
+                    .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
                     .send({ from: window.coinbase });
             }
             catch (err) {
                 console.log(err);
-                throw err;
+                
             }
         }
 
