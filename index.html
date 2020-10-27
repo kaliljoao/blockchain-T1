@@ -191,11 +191,11 @@
             var documentNumber = document.getElementById("documentNumber").value;
 		    var password = document.getElementById("password").value;
             try {
-                    console.log("entrou no try-catch")
 		            let isRegistered = await window.SimpleStorage.methods
                         .LoginWithPlugin(documentNumber, password)
                         .call({from:window.coinbase});
                     if(isRegistered) {
+                        localStorage.setItem('documentNumber', documentNumber)
                         window.location.href = 'https://kaliljoao.github.io/blockchain-T1/New-Card.html';
                     } else {
                         alert("Document Number or Password invalid!")
