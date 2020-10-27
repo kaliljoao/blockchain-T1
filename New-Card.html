@@ -188,15 +188,16 @@
             window.coinbase = await window.web3.eth.getCoinbase();
         };
 
-        async function loginWithSDP() {
-            var documentNumber = document.getElementById("documentNumber").value;
-            var password = document.getElementById("password").value;
+        function AddCard() {
+            
+        }
+
+        async function GetCards() {
+            
             try {
                 let isRegistered = await window.SimpleStorage.methods
                     .Login(documentNumber, password)
                     .call({ from: window.coinbase });
-
-                console.log(isRegistered);
             }
             catch (err) {
                 console.log(err);
@@ -225,6 +226,25 @@
     <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
         <div class="container">
             <div class="card bg-light">
+                <div style="display: flex; justify-content: center;">
+                    <div>
+                        <h3 style="text-align: center; padding-top: 15px">Meus cartões</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <span 
+                            style="
+                                background: none;
+                                border: none; 
+                                padding-top: 15px;
+                                cursor: pointer;
+                            " 
+                            onclick="AddCard()"
+                            class="input-group-text"
+                        > 
+                            <i class="fa fa-plus"></i> 
+                        </span>
+                    </div>
+                </div>
                 <article class="card-body mx-auto" style="max-width: 600px; min-width: 600px;">
                     <div class="accordion" id="accordionExample">
                         <div class="card z-depth-0 bordered">
