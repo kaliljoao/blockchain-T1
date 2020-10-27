@@ -190,19 +190,17 @@
 		async function loginWithSDP() {
             var documentNumber = document.getElementById("documentNumber").value;
 		    var password = document.getElementById("password").value;
-            console.log(documentNumber, password);
             try {
-                    console.log("entrou no try-catch")
-		            let isRegistered = await window.SimpleStorage.methods
-                        .Login(documentNumber, password)
-                        .call({from:window.coinbase});
-                    
-                    console.log(isRegistered);
-                }
-                catch( err ) {
-                    console.log(err);
-                    throw err;
-                }
+                let isRegistered = await window.SimpleStorage.methods
+                    .Login(documentNumber, password)
+                    .call({from:window.coinbase});
+                
+                console.log(isRegistered);
+            }
+            catch( err ) {
+                console.log(err);
+                throw err;
+            }
         }
 
 		if (!ethEnabled()) {
@@ -221,22 +219,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
 <body>
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
-              </button>
-            </h2>
-          </div>
-      
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                Esse é um 
+    <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
+    	<div class="container">
+            <div class="card bg-light">
+                <article class="card-body mx-auto" style="max-width: 500px;">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                            </button>
+                            </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Esse é um 
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 </body>
 </html>
