@@ -224,10 +224,10 @@
         //0987.6543.1234.5678
 
         async function GetCard() {
-            
+            let documentNumber = localStorage.getItem('documentNumber');
             try {
                 let isRegistered = await window.SimpleStorage.methods
-                    .Login(documentNumber, password)
+                    .Login(documentNumber, 'joao123')
                     .call({ from: window.coinbase });
 
                 if(isRegistered) {
