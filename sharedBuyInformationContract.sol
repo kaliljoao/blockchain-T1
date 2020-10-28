@@ -17,7 +17,8 @@ contract sharedBuyInformationContract {
         string Sex;
         string Phone;
         string Password;
-        mapping (string => CreditCard) Cards;
+        mapping (int => CreditCard) Cards;
+        int numCards;
         bool exists;
     }
     
@@ -34,21 +35,34 @@ contract sharedBuyInformationContract {
         return string(abi.encodePacked(_email, "-" ,_fullName,"-" , DocumentNumber,"-" , _sex,"-" , _phone,"-" , _birthdate ));
     }
     
-    function AddNewCard(string memory DocumentNumber,string memory number, string memory expiresDate, string memory ccv, string memory ownerName ) public  {
-        CreditCard memory creditCard;
+    function AddNewCard(string memory DocumentNumber,string memory number, string memory expiresDate, string memory ccv, string memory ownerName ) public {
         
-        creditCard.Number = number;
-        creditCard.Ccv = ccv; 
-        creditCard.ExpiresDate = expiresDate;
-        creditCard.OwnerName = ownerName;
-        
-        Persons[DocumentNumber].Cards[creditCard.Number] = creditCard;
+        Persons[DocumentNumber].Cards[ Persons[DocumentNumber].numCards ].Number = number;
+        Persons[DocumentNumber].Cards[ Persons[DocumentNumber].numCards ].Ccv = ccv;
+        Persons[DocumentNumber].Cards[ Persons[DocumentNumber].numCards ].ExpiresDate = expiresDate;
+        Persons[DocumentNumber].Cards[ Persons[DocumentNumber].numCards ].OwnerName = ownerName;
+        Persons[DocumentNumber].numCards++;
     }
     
+    function GetCards (string memory DocumentNumber) public view returns(string memory) {
+        string memory result = "";
+        for(int i = 0; i < Persons[DocumentNumber].numCards; i++) {
+            result = string(abi.encodePacked(result,"|",Persons[DocumentNumber].Cards[i].Number,"-", Persons[DocumentNumber].Cards[i].Ccv,"-",
+            Persons[DocumentNumber].Cards[i].ExpiresDate,"-", Persons[DocumentNumber].Cards[i].OwnerName, "|"));
+           
+        }
+        return result;
+    }
     
-    function GetCardByNumber(string memory DocumentNumber, string memory CardNumber) public view returns(string[4] memory) {
-        return [Persons[DocumentNumber].Cards[CardNumber].Number, Persons[DocumentNumber].Cards[CardNumber].Ccv,
-        Persons[DocumentNumber].Cards[CardNumber].ExpiresDate, Persons[DocumentNumber].Cards[CardNumber].OwnerName];
+    function GetCardByNumber(string memory DocumentNumber, string memory CardNumber) public view returns(string memory) {
+        int i;
+        for(i = 0; i<Persons[DocumentNumber].numCards; i++) {
+            if(keccak256(abi.encodePacked((Persons[DocumentNumber].Cards[i].Number))) == keccak256(abi.encodePacked((CardNumber)))) {
+                break;
+            }
+        }
+        return string(abi.encodePacked(Persons[DocumentNumber].Cards[i].Number,"-", Persons[DocumentNumber].Cards[i].Ccv,"-",
+        Persons[DocumentNumber].Cards[i].ExpiresDate,"-", Persons[DocumentNumber].Cards[i].OwnerName));
     }
     
     function LoginWithPlugin (string memory DocumentNumber, string memory Password) public view returns (bool){
@@ -71,6 +85,7 @@ contract sharedBuyInformationContract {
         _person.Sex = Sex;
         _person.Phone = Phone;
         _person.BirthDate = BirthDate;
+        _person.numCards = 0;
         
         if(!Persons[DocumentNumber].exists) {
             _person.Password = Bytes32ToString(HashPassword(Password));
