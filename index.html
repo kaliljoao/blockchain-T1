@@ -4,7 +4,7 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x610A661bA159148CeC7a00fF8019176F3B9e5744";
+		const contract_address = "0x693477aeB42263fE72B2f91DD025De9877Bfc48d";
 
 const contract_abi = [
 	{
@@ -97,6 +97,25 @@ const contract_abi = [
 			}
 		],
 		"name": "GetCardByNumber",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			}
+		],
+		"name": "GetCards",
 		"outputs": [
 			{
 				"internalType": "string",
