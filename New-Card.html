@@ -195,19 +195,14 @@ const contract_abi = [
         }
         //0987.6543.1234.5678
 
-        async function GetCard() {
+        async function GetCards() {
             let documentNumber = localStorage.getItem('documentNumber');
             try {
-                let isRegistered = await window.SimpleStorage.methods
-                    .LoginWithPlugin(documentNumber, 'joao123')
+                let cards = await window.SimpleStorage.methods
+                    .GetCards(documentNumber)
                     .call({ from: window.coinbase });
-
-                if(isRegistered) {
-                    let card = await window.SimpleStorage.methods
-                        .GetCardByNumber(documentNumber, '1234123412341234')
-                        .call({ from: window.coinbase });
-                    console.log(card);
-                }
+                console.log(cards);
+                
             }
             catch (err) {
                 console.log(err);
