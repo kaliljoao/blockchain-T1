@@ -198,18 +198,23 @@
         }
 
         async function AddCard() {
+            console.log('entrou na função');
             let cardNumber = document.getElementById("cardNumber");
             let expiresDate = document.getElementById("expiresDate");
             let ccv = document.getElementById("ccv");
             let ownerName = document.getElementById("ownerName");
             let documentNumber = localStorage.getItem('documentNumber');
+            console.log('pegou todos as infos');
             console.log(documentNumber, cardNumber, expiresDate, ccv, ownerName);
+            console.log('exibiu todas as infos');
             try {
+                console.log('entrou no try');
                 await window.SimpleStorage.methods
                     .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
                     .send();
             }
             catch (err) {
+                console.log('deu erro')
                 console.log(err);
                 
             }
