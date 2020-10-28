@@ -225,7 +225,9 @@ const contract_abi = [
                 let arrCadsSeparated = [];
                 arrCards.forEach(card => {
                     let c = card.split('-');
-                    arrCadsSeparated.push(c);
+                    if(c.length > 1) {
+                        arrCadsSeparated.push(c);
+                    }
                 });
                 console.log(arrCadsSeparated);
                 let accordion = document.getElementById('accordion');
