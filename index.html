@@ -4,152 +4,152 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x65e7A6e054A4eB1E80D3038125Aec429b3a8Cc84";
+		const contract_address = "0x610A661bA159148CeC7a00fF8019176F3B9e5744";
 
 const contract_abi = [
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "DocumentNumber",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "number",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "expiresDate",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "ccv",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "ownerName",
-                "type": "string"
-            }
-        ],
-        "name": "AddNewCard",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "DocumentNumber",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "Email",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "FullName",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "BirthDate",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "Sex",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "Phone",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "Password",
-                "type": "string"
-            }
-        ],
-        "name": "RegisterNewUser",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "DocumentNumber",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "CardNumber",
-                "type": "string"
-            }
-        ],
-        "name": "GetCardByNumber",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "DocumentNumber",
-                "type": "string"
-            }
-        ],
-        "name": "GetContractData",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "DocumentNumber",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "Password",
-                "type": "string"
-            }
-        ],
-        "name": "LoginWithPlugin",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    }
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "number",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "expiresDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ccv",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ownerName",
+				"type": "string"
+			}
+		],
+		"name": "AddNewCard",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "FullName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "BirthDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Sex",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Phone",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Password",
+				"type": "string"
+			}
+		],
+		"name": "RegisterNewUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "CardNumber",
+				"type": "string"
+			}
+		],
+		"name": "GetCardByNumber",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			}
+		],
+		"name": "GetContractData",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "DocumentNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Password",
+				"type": "string"
+			}
+		],
+		"name": "LoginWithPlugin",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
 ];
 		
         const ethEnabled = () => {
