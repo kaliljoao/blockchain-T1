@@ -210,7 +210,7 @@
             try {
                 console.log('entrou no try');
                 await window.SimpleStorage.methods
-                    .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
+                    .AddNewCard(documentNumber.toString(), cardNumber.toString(), expiresDate.toString(), ccv.toString(), ownerName.toString())
                     .send();
             }
             catch (err) {
