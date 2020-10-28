@@ -34,7 +34,7 @@ contract sharedBuyInformationContract {
         return string(abi.encodePacked(_email, "-" ,_fullName,"-" , DocumentNumber,"-" , _sex,"-" , _phone,"-" , _birthdate ));
     }
     
-    function AddNewCard(string memory DocumentNumber,string memory number, string memory expiresDate, string memory ccv, string memory ownerName ) public {
+    function AddNewCard(string memory DocumentNumber,string memory number, string memory expiresDate, string memory ccv, string memory ownerName ) public  {
         CreditCard memory creditCard;
         
         creditCard.Number = number;
@@ -46,8 +46,9 @@ contract sharedBuyInformationContract {
     }
     
     
-    function GetCardByNumber(string memory DocumentNumber, string memory CardNumber) public view returns(CreditCard memory) {
-        return Persons[DocumentNumber].Cards[CardNumber];
+    function GetCardByNumber(string memory DocumentNumber, string memory CardNumber) public view returns(string[4] memory) {
+        return [Persons[DocumentNumber].Cards[CardNumber].Number, Persons[DocumentNumber].Cards[CardNumber].Ccv,
+        Persons[DocumentNumber].Cards[CardNumber].ExpiresDate, Persons[DocumentNumber].Cards[CardNumber].OwnerName];
     }
     
     function LoginWithPlugin (string memory DocumentNumber, string memory Password) public view returns (bool){
