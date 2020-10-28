@@ -197,7 +197,7 @@
             }
         }
 
-        async function AddNewCard() {
+        async function AddCard() {
             let cardNumber = document.getElementById("cardNumber");
             let expiresDate = document.getElementById("expiresDate");
             let ccv = document.getElementById("ccv");
@@ -207,7 +207,7 @@
             try {
                 await window.SimpleStorage.methods
                     .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
-                    .send({ from: window.coinbase });
+                    .send();
             }
             catch (err) {
                 console.log(err);
@@ -289,7 +289,7 @@
                             <input id="ccv" name="" class="form-control" placeholder="CCV" type="text">
                         </div>
                         <div class="form-group">
-                            <button onclick="AddNewCard()" class="btn btn-primary btn-block"> Confirm  </button>
+                            <button onclick="AddCard()" class="btn btn-primary btn-block"> Confirm  </button>
                         </div>  
                     </form>
                 </div>
