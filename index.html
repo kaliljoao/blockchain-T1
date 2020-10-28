@@ -4,7 +4,7 @@
 	<title>Blockchain - T1</title>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
 	<script type="text/javascript">
-		const contract_address = "0x1569A1Ea4045769340d8edE06e74e96DFf1425D2";
+		const contract_address = "0xf38233477008Dfc260aeE1a1cfcDBa580FB33DeE";
 
         const contract_abi = [
             {
@@ -37,7 +37,7 @@
                 ],
                 "name": "AddNewCard",
                 "outputs": [],
-                "stateMutability": "payable",
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -99,31 +99,9 @@
                 "name": "GetCardByNumber",
                 "outputs": [
                     {
-                        "components": [
-                            {
-                                "internalType": "string",
-                                "name": "Number",
-                                "type": "string"
-                            },
-                            {
-                                "internalType": "string",
-                                "name": "ExpiresDate",
-                                "type": "string"
-                            },
-                            {
-                                "internalType": "string",
-                                "name": "Ccv",
-                                "type": "string"
-                            },
-                            {
-                                "internalType": "string",
-                                "name": "OwnerName",
-                                "type": "string"
-                            }
-                        ],
-                        "internalType": "struct sharedBuyInformationContract.CreditCard",
+                        "internalType": "string[4]",
                         "name": "",
-                        "type": "tuple"
+                        "type": "string[4]"
                     }
                 ],
                 "stateMutability": "view",
