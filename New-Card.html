@@ -220,9 +220,19 @@ const contract_abi = [
                 let cards = await window.SimpleStorage.methods
                     .GetCards(documentNumber)
                     .call({ from: window.coinbase });
-                console.log(cards);
                 
-            }
+                let arrCards = cards.split('|');
+                let arrCadsSeparated = [];
+                arrCards.forEach(card => {
+                    let c = card.split('-');
+                    arrCadsSeparated.push(c);
+                });
+                let accordion = document.getElementById('accordion');
+                for(i = 0; i < arrCardsSeparated.length; i++) {
+                    let newNode =`<div class="card z-depth-0 bordered"><div class="card-header" id="headingOne"><h5 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse"data-target="#collapse${i.toString()}" aria-controls="collapse${i.toString()}">${arrCadsSeparated[i][0]}</button> </h5></div><div id="collapse${i.toString()}" class="collapse show" aria-labelledby="headingOne"data-parent="#accordionExample"><div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry!</div></div></div>`; 
+                    accordion.appendChild(newNode);
+                }
+            }   
             catch (err) {
                 console.log(err);
                 throw err;
@@ -292,12 +302,12 @@ const contract_abi = [
                     </form>
                 </div>
                 <article class="card-body mx-auto" style="max-width: 600px; min-width: 600px;">
-                    <div class="accordion" id="accordionExample">
+                    <div id="accordion" class="accordion" id="accordionExample">
                         <div class="card z-depth-0 bordered">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        data-target="#collapseOne" aria-controls="collapseOne">
                                         Collapsible Group Item #1
                                     </button>
                                 </h5>
@@ -316,3 +326,5 @@ const contract_abi = [
     </div>
 </body>
 </html>
+
+
