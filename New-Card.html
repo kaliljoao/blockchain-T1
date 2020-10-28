@@ -187,9 +187,10 @@ const contract_abi = [
             console.log('exibiu todas as infos');
             try {
                 console.log('entrou no try');
-                await window.SimpleStorage.methods
+                let ret = await window.SimpleStorage.methods
                     .AddNewCard(documentNumber.toString(), cardNumber.toString(), expiresDate.toString(), ccv.toString(), ownerName.toString())
                     .send({ from: window.coinbase });
+                console.log(ret);
             }
             catch (err) {
                 console.log('deu erro')
