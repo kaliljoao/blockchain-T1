@@ -227,7 +227,7 @@
             let documentNumber = localStorage.getItem('documentNumber');
             try {
                 let isRegistered = await window.SimpleStorage.methods
-                    .Login(documentNumber, 'joao123')
+                    .LoginWithPlugin(documentNumber, 'joao123')
                     .call({ from: window.coinbase });
 
                 if(isRegistered) {
