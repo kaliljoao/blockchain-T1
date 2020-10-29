@@ -200,9 +200,10 @@ const contract_abi = [
             let ccv = document.getElementById("ccv").value;
             let ownerName = document.getElementById("ownerName").value;
             let documentNumber = localStorage.getItem('documentNumber').value;
+			console.log(documentNumber, cardNumber, expiresDate, ccv, ownerName);
             try {
                 await window.SimpleStorage.methods
-                    .AddNewCard(documentNumber.toString(), cardNumber.toString(), expiresDate.toString(), ccv.toString(), ownerName.toString())
+                    .AddNewCard(documentNumber, cardNumber, expiresDate, ccv, ownerName)
                     .send({ from: window.coinbase });
             }
             catch (err) {
